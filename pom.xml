@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>selfautorestdoc</artifactId>
+	<packaging>jar</packaging>
+	<version>0.0.1</version>
+
+	<name>SelfAutoRESTDoc</name>
+	<url>https://github.com/hdsdi3g/selfautorestdoc</url>
+	<description>Create an automatic SpringBoot REST documentation to markdown with Spoon</description>
+
+	<parent>
+		<groupId>tv.hd3g.commons</groupId>
+		<artifactId>parent</artifactId>
+		<version>2.1.7.RELEASE-3</version>
+		<relativePath />
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>fr.inria.gforge.spoon</groupId>
+			<artifactId>spoon-core</artifactId>
+			<version>8.0.0</version>
+		</dependency>
+	</dependencies>
+	<organization>
+		<name>hd3g.tv</name>
+		<url>https://hd3g.tv</url>
+	</organization>
+	<developers>
+		<developer>
+			<name>hdsdi3g</name>
+			<email>admin@hd3g.tv</email>
+			<organization>hd3g.tv</organization>
+			<organizationUrl>https://hd3g.tv</organizationUrl>
+		</developer>
+	</developers>
+	<scm>
+		<connection>scm:git:https://github.com/hdsdi3g/selfautorestdoc.git</connection>
+		<developerConnection>scm:git:https://github.com/hdsdi3g/selfautorestdoc.git</developerConnection>
+		<url>https://github.com/hdsdi3g</url>
+		<tag>HEAD</tag>
+	</scm>
+	<issueManagement>
+		<url>https://github.com/hdsdi3g/selfautorestdoc/issues</url>
+		<system>GitHub</system>
+	</issueManagement>
+	<licenses>
+		<license>
+			<name>GNU Lesser General Public License, Version 3</name>
+			<url>https://www.gnu.org/licenses/lgpl.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+</project>
