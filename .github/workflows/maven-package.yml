@@ -28,7 +28,7 @@ jobs:
         -Dgpg.skip=true
         -Dmaven.javadoc.skip=true
         -Dmaven.source.skip=true
-        -Dsonar.projectKey=selfautorestdoc
+        -Dsonar.projectKey=hdsdi3g_selfautorestdoc
         -Dsonar.organization=hdsdi3g
         -Dsonar.host.url=https://sonarcloud.io
         -Dsonar.login=$SONAR_TOKEN
