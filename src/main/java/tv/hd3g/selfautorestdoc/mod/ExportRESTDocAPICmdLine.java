@@ -32,7 +32,7 @@ import org.springframework.stereotype.Component;
 public class ExportRESTDocAPICmdLine implements ApplicationRunner {
 
 	@Autowired
-	private EndpointsListener endpointsListener;
+	private SelfAutoRestDocEndpointsListener selfAutoRestDocEndpointsListener;
 	@Value("${selfautorestdoc.outputfile:API.md}")
 	private File outputFile;
 
@@ -41,7 +41,7 @@ public class ExportRESTDocAPICmdLine implements ApplicationRunner {
 		if (args.getNonOptionArgs().contains("export-rest-doc-api") == false) {
 			return;
 		}
-		endpointsListener.getSelfAutoRESTDoc().writeToMD(outputFile);
+		selfAutoRestDocEndpointsListener.getSelfAutoRESTDoc().writeToMD(outputFile);
 		if (args.getNonOptionArgs().contains("dont-quit-after-done") == false) {
 			System.exit(0);
 		}

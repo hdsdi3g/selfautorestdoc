@@ -26,11 +26,11 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import tv.hd3g.selfautorestdoc.SelfAutoRESTDoc;
 
 @Component
-public class EndpointsListener implements ApplicationListener<ApplicationEvent> {
+public class SelfAutoRestDocEndpointsListener implements ApplicationListener<ApplicationEvent> {
 
 	private final SelfAutoRESTDoc selfAutoRESTDoc;
 
-	public EndpointsListener() {
+	public SelfAutoRestDocEndpointsListener() {
 		selfAutoRESTDoc = new SelfAutoRESTDoc();
 	}
 
