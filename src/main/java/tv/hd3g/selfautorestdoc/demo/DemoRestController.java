@@ -16,12 +16,11 @@
  */
 package tv.hd3g.selfautorestdoc.demo;
 
-import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotEmpty;
 
-import org.springframework.hateoas.RepresentationModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -41,7 +40,7 @@ import tv.hd3g.commons.authkit.CheckBefore;
  * A class comment!
  */
 @RestController
-@RequestMapping(value = "/serverPath", produces = APPLICATION_JSON_UTF8_VALUE)
+@RequestMapping(value = "/serverPath", produces = APPLICATION_JSON_VALUE)
 public class DemoRestController {
 
 	@PostMapping(name = "Post Demo",
@@ -64,20 +63,20 @@ public class DemoRestController {
 	}
 
 	@PutMapping(name = "Put Demo", value = "putActionControllerPath")
-	public ResponseEntity<RepresentationModel> putActionController() {
+	public ResponseEntity<BaseRepresentationModel> putActionController() {
 		return null;
 	}
 
 	@DeleteMapping(name = "Delete Demo", value = "deleteActionControllerPath")
 	@CheckBefore("rightForDelete")
 	@CheckBefore("alternateRightForDelete")
-	public ResponseEntity<RepresentationModel> deleteActionController() {
+	public ResponseEntity<BaseRepresentationModel> deleteActionController() {
 		return null;
 	}
 
 	@PatchMapping(name = "Patch Demo", value = "patchActionControllerPath")
 	@CheckBefore({ "rightForPatch", "anotherRightForPatch" })
-	public ResponseEntity<RepresentationModel> patchActionController() {
+	public ResponseEntity<BaseRepresentationModel> patchActionController() {
 		return null;
 	}
 

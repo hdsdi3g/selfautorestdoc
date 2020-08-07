@@ -16,14 +16,13 @@ deleteActionController
 Headers: 
 
 ```javascript
-Response: "application/json;charset=UTF-8" {
-    links: [Link, ...]
+Response: "application/json" {
 }
 ```
 
 _Mandatory rights: rightForDelete | alternateRightForDelete_
 
-[Go to the top](#rest-api) &bull; [DemoRestController :: deleteActionController](/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#74)
+[Go to the top](#rest-api) &bull; [DemoRestController :: deleteActionController](/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#73)
 
 ## Get Demo
 **GET** /serverPath/getActionController/{textValueVarName}/path?numValue=0
@@ -36,8 +35,8 @@ Parameters:
 Headers: 
 
 ```javascript
-Response: "application/json;charset=UTF-8" {
-    links: [Link, ...],
+Response: "application/json" {
+    links: Links,
     subInputDto: SubOutputDto,
     subList: [String, ...],
     subMap: {
@@ -47,7 +46,7 @@ Response: "application/json;charset=UTF-8" {
 }
 ```
 
-[Go to the top](#rest-api) &bull; [DemoRestController :: getActionController](/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#60)
+[Go to the top](#rest-api) &bull; [DemoRestController :: getActionController](/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#59)
 
 ## Patch Demo
 **PATCH** /serverPath/patchActionControllerPath
@@ -57,14 +56,13 @@ patchActionController
 Headers: 
 
 ```javascript
-Response: "application/json;charset=UTF-8" {
-    links: [Link, ...]
+Response: "application/json" {
 }
 ```
 
 _Mandatory rights: rightForPatch & anotherRightForPatch_
 
-[Go to the top](#rest-api) &bull; [DemoRestController :: patchActionController](/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#80)
+[Go to the top](#rest-api) &bull; [DemoRestController :: patchActionController](/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#79)
 
 ## Post Demo
 **POST** /serverPath/postActionControllerPath
@@ -85,8 +83,8 @@ Request body data: "text/xml" {
 ```
 
 ```javascript
-Response: "application/json;charset=UTF-8" {
-    links: [Link, ...],
+Response: "application/json" {
+    links: Links,
     subInputDto: SubOutputDto,
     subList: [String, ...],
     subMap: {
@@ -96,7 +94,7 @@ Response: "application/json;charset=UTF-8" {
 }
 ```
 
-[Go to the top](#rest-api) &bull; [DemoRestController :: postActionController](/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#50)
+[Go to the top](#rest-api) &bull; [DemoRestController :: postActionController](/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#49)
 
 ## Put Demo
 **PUT** /serverPath/putActionControllerPath
@@ -106,9 +104,8 @@ putActionController
 Headers: 
 
 ```javascript
-Response: "application/json;charset=UTF-8" {
-    links: [Link, ...]
+Response: "application/json" {
 }
 ```
 
-[Go to the top](#rest-api) &bull; [DemoRestController :: putActionController](/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#67)
+[Go to the top](#rest-api) &bull; [DemoRestController :: putActionController](/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#66)

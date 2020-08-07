@@ -33,6 +33,7 @@ import java.util.stream.Stream;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.hateoas.RepresentationModel;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -50,6 +51,8 @@ class DtoAnalyser {
 	private static final CtTypeReference<?> collectionType = typeFactory.get(Collection.class).getReference();
 	private static final CtTypeReference<?> mapType = typeFactory.get(Map.class).getReference();
 	private static final CtTypeReference<?> objectType = typeFactory.get(Object.class).getReference();
+	private static final CtTypeReference<?> representationModelType = typeFactory.get(RepresentationModel.class)
+	        .getReference();
 
 	private final CtTypeReference<?> declaringType;
 	private final boolean isResponseDto;
@@ -177,6 +180,10 @@ class DtoAnalyser {
 	}
 
 	private Stream<DtoItem> getResponseDtoContent(final CtTypeReference<?> declaringType, final int stratumPos) {
+		final var superClass = declaringType.getSuperclass();
+		if (superClass != null && representationModelType.isSubtypeOf(superClass)) {
+			return Stream.empty();
+		}
 		return declaringType.getAllExecutables().stream()
 		        .filter(e -> {
 			        if (e.isConstructor()) {

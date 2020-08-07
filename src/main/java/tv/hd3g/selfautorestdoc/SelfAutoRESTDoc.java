@@ -30,6 +30,7 @@ import spoon.Launcher;
 public class SelfAutoRESTDoc {
 
 	private final ConcurrentHashMap<Class<?>, RESTController> restControllerAutoDocByClass;
+	public static final String NEW_LINE = "\n";
 
 	public SelfAutoRESTDoc() {
 		restControllerAutoDocByClass = new ConcurrentHashMap<>();
@@ -44,11 +45,11 @@ public class SelfAutoRESTDoc {
 	public void writeToMD(final File mdFile) throws IOException {
 		final var entryPoints = processAnalysis();
 
-		try (final PrintWriter pw = new PrintWriter(mdFile)) {
-			pw.println("# REST API");
+		try (final var pw = new PrintWriter(mdFile)) {
+			pw.print("# REST API" + NEW_LINE);
 			writeSummary(entryPoints, pw);
 			entryPoints.forEach(ep -> writeContent(ep, pw));
-			pw.println();
+			pw.print(NEW_LINE);
 		}
 	}
 
@@ -77,54 +78,54 @@ public class SelfAutoRESTDoc {
 	}
 
 	private void writeSummary(final List<RESTEntryPoint> entryPoints, final PrintWriter pw) {
-		pw.println("## Summary");
+		pw.print("## Summary" + NEW_LINE);
 		entryPoints.forEach(ep -> {
-			pw.println();
+			pw.print(NEW_LINE);
 			pw.print(" - [");
 			pw.print(ep.getRequestNames() + " **" + ep.getVerbs() + "** " + ep.getPaths());
 			pw.print("](#");
 			pw.print(linkifyTitle(ep.getRequestNames() + " " + ep.getVerbs() + " " + ep.getPaths()));
 			pw.print(")");
 		});
-		pw.println();
+		pw.print(NEW_LINE);
 	}
 
 	private void writeContent(final RESTEntryPoint ep, final PrintWriter pw) {
-		pw.println();
-		pw.println();
+		pw.print(NEW_LINE);
+		pw.print(NEW_LINE);
 		pw.print("## ");
 		final var rqname = ep.getRequestNames();
 		if (rqname.isEmpty() == false) {
-			pw.println(rqname);
+			pw.print(rqname + NEW_LINE);
 		}
 		pw.print("**" + ep.getVerbs() + "** ");
-		pw.println(ep.getPaths());
-		pw.println();
+		pw.print(ep.getPaths() + NEW_LINE);
+		pw.print(NEW_LINE);
 
 		ep.getMethodComments().forEach(c -> {
-			pw.println(c);
-			pw.println();
+			pw.print(c + NEW_LINE);
+			pw.print(NEW_LINE);
 		});
 		if (ep.getMethodComments().isEmpty()) {
-			pw.println(ep.getMethodName());
-			pw.println();
+			pw.print(ep.getMethodName() + NEW_LINE);
+			pw.print(NEW_LINE);
 		}
 
 		final var urlParameters = ep.getUrlParameters();
 		if (urlParameters.isEmpty() == false) {
-			pw.println("Parameters:");
-			urlParameters.forEach((n, t) -> pw.println(" - **" + n + "** " + t));
-			pw.println();
+			pw.print("Parameters:" + NEW_LINE);
+			urlParameters.forEach((n, t) -> pw.print(" - **" + n + "** " + t + NEW_LINE));
+			pw.print(NEW_LINE);
 		}
 		final var headers = ep.getHeaders();
 		if (rqname.isEmpty() == false) {
 			pw.print("Headers: ");
-			pw.println(headers);
-			pw.println();
+			pw.print(headers + NEW_LINE);
+			pw.print(NEW_LINE);
 		}
 
 		ep.getDTORequest().ifPresent(r -> {
-			pw.println("```javascript");
+			pw.print("```javascript" + NEW_LINE);
 			pw.print("Request body data: ");
 			final var consumes = ep.getConsumes();
 			if (consumes.isBlank() == false) {
@@ -132,15 +133,15 @@ public class SelfAutoRESTDoc {
 				pw.print(consumes);
 				pw.print("\" ");
 			}
-			pw.println("{");
-			r.forEach(pw::println);
-			pw.println("}");
-			pw.println("```");
-			pw.println();
+			pw.print("{" + NEW_LINE);
+			r.forEach(l -> pw.print(l + NEW_LINE));
+			pw.print("}" + NEW_LINE);
+			pw.print("```" + NEW_LINE);
+			pw.print(NEW_LINE);
 		});
 
 		ep.getDTOResponse().ifPresent(r -> {
-			pw.println("```javascript");
+			pw.print("```javascript" + NEW_LINE);
 			pw.print("Response: ");
 			final var produces = ep.getProduces();
 			if (produces.isBlank() == false) {
@@ -148,18 +149,18 @@ public class SelfAutoRESTDoc {
 				pw.print(produces);
 				pw.print("\" ");
 			}
-			pw.println("{");
-			r.forEach(pw::println);
-			pw.println("}");
-			pw.println("```");
-			pw.println();
+			pw.print("{" + NEW_LINE);
+			r.forEach(l -> pw.print(l + NEW_LINE));
+			pw.print("}" + NEW_LINE);
+			pw.print("```" + NEW_LINE);
+			pw.print(NEW_LINE);
 		});
 
 		final var rights = ep.getRights();
 		if (rights.isEmpty() == false) {
 			pw.print("_Mandatory rights: ");
-			pw.println(rights + "_");
-			pw.println();
+			pw.print(rights + "_" + NEW_LINE);
+			pw.print(NEW_LINE);
 		}
 
 		pw.print("[Go to the top](#rest-api)");

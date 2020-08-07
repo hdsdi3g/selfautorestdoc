@@ -38,7 +38,7 @@ import tv.hd3g.selfautorestdoc.mod.ExportRESTDocAPICmdLine;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class ExportRESTDocAPICmdLineTest {
+class ExportRESTDocAPICmdLineTest {
 
 	@Autowired
 	private ExportRESTDocAPICmdLine exportRESTDocAPICmdLine;
@@ -48,14 +48,14 @@ public class ExportRESTDocAPICmdLineTest {
 	private File outputFile;
 
 	@BeforeEach
-	public void init() {
+	void init() {
 		MockitoAnnotations.initMocks(this);
 		final var list = List.of("export-rest-doc-api", "dont-quit-after-done");
 		Mockito.when(args.getNonOptionArgs()).thenReturn(list);
 	}
 
 	@Test
-	public void testRun() throws Exception {
+	void testRun() throws Exception {
 		assertTrue(outputFile.delete());
 		exportRESTDocAPICmdLine.run(args);
 
