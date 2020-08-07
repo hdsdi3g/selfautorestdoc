@@ -21,7 +21,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_UTF8_VALUE;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.constraints.NotEmpty;
 
-import org.springframework.hateoas.ResourceSupport;
+import org.springframework.hateoas.RepresentationModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -64,20 +64,20 @@ public class DemoRestController {
 	}
 
 	@PutMapping(name = "Put Demo", value = "putActionControllerPath")
-	public ResponseEntity<ResourceSupport> putActionController() {
+	public ResponseEntity<RepresentationModel> putActionController() {
 		return null;
 	}
 
 	@DeleteMapping(name = "Delete Demo", value = "deleteActionControllerPath")
 	@CheckBefore("rightForDelete")
 	@CheckBefore("alternateRightForDelete")
-	public ResponseEntity<ResourceSupport> deleteActionController() {
+	public ResponseEntity<RepresentationModel> deleteActionController() {
 		return null;
 	}
 
 	@PatchMapping(name = "Patch Demo", value = "patchActionControllerPath")
 	@CheckBefore({ "rightForPatch", "anotherRightForPatch" })
-	public ResponseEntity<ResourceSupport> patchActionController() {
+	public ResponseEntity<RepresentationModel> patchActionController() {
 		return null;
 	}
 

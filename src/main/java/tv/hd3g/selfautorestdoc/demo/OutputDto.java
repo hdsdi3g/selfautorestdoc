@@ -20,9 +20,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import org.springframework.hateoas.ResourceSupport;
+import org.springframework.hateoas.RepresentationModel;
 
-public class OutputDto extends ResourceSupport {
+public class OutputDto extends RepresentationModel {
 
 	private String textValue;
 	private Map<String, String> subMap;

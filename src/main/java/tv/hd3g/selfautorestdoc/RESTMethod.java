@@ -116,13 +116,13 @@ class RESTMethod {
 			final var typeEntity = mainType.getActualTypeArguments().stream().findFirst();
 			if (typeEntity.isPresent() == false) {
 				/**
-				 * Not ResponseEntity<ResourceSupport>
-				 * Not ResponseEntity<? as ResourceSupport>
+				 * Not ResponseEntity<RepresentationModel>
+				 * Not ResponseEntity<? as RepresentationModel>
 				 */
 				methodReturn = Optional.empty();
 			} else {
 				/**
-				 * Not ResponseEntity<T as ResourceSupport>
+				 * Not ResponseEntity<T as RepresentationModel>
 				 * -> T
 				 */
 				methodReturn = Optional.of(new DtoAnalyser(typeEntity.get(), true));
