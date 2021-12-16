@@ -48,8 +48,8 @@ class ExportRESTDocAPICmdLineTest {
 	private File outputFile;
 
 	@BeforeEach
-	void init() {
-		MockitoAnnotations.initMocks(this);
+	void init() throws Exception {
+		MockitoAnnotations.openMocks(this).close();
 		final var list = List.of("export-rest-doc-api", "dont-quit-after-done");
 		Mockito.when(args.getNonOptionArgs()).thenReturn(list);
 	}

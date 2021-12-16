@@ -49,7 +49,7 @@ class RESTController {
 	                                                                      a.annotationType() == GetMapping.class;
 
 	public RESTControllerAnalysis processAnalysis(final CtModel model) {
-		final AnnotationExtractor classAnnotations = new AnnotationExtractor(controllerClass);
+		final var classAnnotations = new AnnotationExtractor(controllerClass);
 		final var methods = Arrays.stream(controllerClass.getDeclaredMethods())
 		        .filter(m -> Modifier.isPublic(m.getModifiers()))
 		        .filter(m -> Arrays.stream(m.getAnnotations()).anyMatch(isAnnotationMapping))

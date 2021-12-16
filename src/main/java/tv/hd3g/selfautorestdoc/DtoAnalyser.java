@@ -111,9 +111,7 @@ class DtoAnalyser {
 
 			if (stratumPos == 10) {
 				subItems = null;
-			} else if (structuralStratum == MAP) {
-				subItems = getDtoContent(type, stratumPos + 1);
-			} else if (structuralStratum == LIST && isTypeIsProtected(type) == false) {
+			} else if ((structuralStratum == MAP) || (structuralStratum == LIST && isTypeIsProtected(type) == false)) {
 				subItems = getDtoContent(type, stratumPos + 1);
 			} else {
 				subItems = null;
@@ -161,7 +159,7 @@ class DtoAnalyser {
 			if (typeArgs.size() != 1) {
 				return Optional.empty();
 			}
-			return Optional.of(typeArgs.get(0));
+			return Optional.ofNullable(typeArgs.get(0));
 		}
 
 	}
@@ -171,7 +169,7 @@ class DtoAnalyser {
 		        .map(JsonProperty::value)
 		        .orElseGet(() -> {
 			        final var simpleName = eref.getSimpleName();
-			        int w = 3;
+			        var w = 3;
 			        if (simpleName.startsWith("is")) {
 				        w = 2;
 			        }

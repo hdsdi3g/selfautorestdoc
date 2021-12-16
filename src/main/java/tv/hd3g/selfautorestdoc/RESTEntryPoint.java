@@ -89,11 +89,11 @@ class RESTEntryPoint {
 		        .filter(v -> v != null && v.isBlank() == false)
 		        .map(String::trim)
 		        .map(v -> {
-			        int start = 0;
+			        var start = 0;
 			        if (v.startsWith("/")) {
 				        start = 1;
 			        }
-			        int ends = v.length();
+			        var ends = v.length();
 			        if (v.endsWith("/")) {
 				        ends = v.length() - 1;
 			        }
@@ -169,7 +169,7 @@ class RESTEntryPoint {
 	public Map<String, String> getUrlParameters() {
 		return method.getUrlParameters().stream()
 		        .collect(Collectors.toMap(URLVariable::getName, k -> {
-			        String opt = "";
+			        var opt = "";
 			        if (k.isRequired() == false) {
 				        opt = " not required";
 			        }
@@ -180,7 +180,7 @@ class RESTEntryPoint {
 	}
 
 	private String dtoFormatter(final DtoItem item) {
-		final StringBuilder sb = new StringBuilder();
+		final var sb = new StringBuilder();
 		final var prefix = StringUtils.repeat("    ", item.getStratumPos() + 1);
 		sb.append(prefix);
 		sb.append(item.getName());
@@ -234,7 +234,7 @@ class RESTEntryPoint {
 		if (bodyRequest.isEmpty()) {
 			return Optional.empty();
 		}
-		return Optional.of(bodyRequest.get().getDtoContent().stream()
+		return Optional.ofNullable(bodyRequest.get().getDtoContent().stream()
 		        .map(this::dtoFormatter)
 		        .collect(Collectors.toUnmodifiableList()));
 	}
@@ -244,7 +244,7 @@ class RESTEntryPoint {
 		if (methodReturn.isEmpty()) {
 			return Optional.empty();
 		}
-		return Optional.of(methodReturn.get().getDtoContent().stream()
+		return Optional.ofNullable(methodReturn.get().getDtoContent().stream()
 		        .map(this::dtoFormatter)
 		        .collect(Collectors.toUnmodifiableList()));
 	}

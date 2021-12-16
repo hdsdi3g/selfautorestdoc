@@ -73,8 +73,8 @@ public class OutputDto extends BaseRepresentationModel {
 
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = super.hashCode();
+		final var prime = 31;
+		var result = super.hashCode();
 		result = prime * result + Objects.hash(subInputDto, subList, subMap, textValue);
 		return result;
 	}
@@ -90,7 +90,7 @@ public class OutputDto extends BaseRepresentationModel {
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		final OutputDto other = (OutputDto) obj;
+		final var other = (OutputDto) obj;
 		return Objects.equals(subInputDto, other.subInputDto) && Objects.equals(subList, other.subList) && Objects
 		        .equals(subMap, other.subMap) && Objects.equals(textValue, other.textValue);
 	}

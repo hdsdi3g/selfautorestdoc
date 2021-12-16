@@ -67,7 +67,7 @@ class RESTMethod {
 		        .filter(p -> p.isAnnotationPresent(RequestParam.class))
 		        .map(p -> {
 			        final var a = p.getAnnotation(RequestParam.class);
-			        String name = a.value();
+			        var name = a.value();
 			        if (name == null || name.isEmpty()) {
 				        name = p.getName();
 			        }
@@ -125,7 +125,7 @@ class RESTMethod {
 				 * Not ResponseEntity<T as RepresentationModel>
 				 * -> T
 				 */
-				methodReturn = Optional.of(new DtoAnalyser(typeEntity.get(), true));
+				methodReturn = Optional.ofNullable(new DtoAnalyser(typeEntity.get(), true));
 			}
 		}
 	}
@@ -195,7 +195,7 @@ class RESTMethod {
 	public Optional<File> getControllerFile() {
 		return methodType.map(CtElement::getPosition).flatMap(p -> {
 			if (p.isValidPosition()) {
-				return Optional.of(p.getFile());
+				return Optional.ofNullable(p.getFile());
 			}
 			return Optional.empty();
 		});
@@ -204,7 +204,7 @@ class RESTMethod {
 	public Optional<Integer> getMethodPosInControllerFile() {
 		return methodType.map(CtElement::getPosition).flatMap(p -> {
 			if (p.isValidPosition()) {
-				return Optional.of(p.getLine());
+				return Optional.ofNullable(p.getLine());
 			}
 			return Optional.empty();
 		});
