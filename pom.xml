@@ -13,11 +13,16 @@
     <parent>
         <groupId>tv.hd3g.commons</groupId>
         <artifactId>parent-web</artifactId>
-        <version>7.0.0</version>
+        <version>8.0.0</version>
         <relativePath />
     </parent>
 
     <dependencies>
+        <dependency>
+            <groupId>tv.hd3g.commons</groupId>
+            <artifactId>interfaces</artifactId>
+            <version>8.0.0</version>
+        </dependency>
         <dependency>
             <groupId>fr.inria.gforge.spoon</groupId>
             <artifactId>spoon-core</artifactId>
