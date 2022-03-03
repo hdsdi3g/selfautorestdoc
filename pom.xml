@@ -4,7 +4,7 @@
     <groupId>tv.hd3g</groupId>
     <artifactId>selfautorestdoc</artifactId>
     <packaging>jar</packaging>
-    <version>0.2.3</version>
+    <version>0.2.4-SNAPSHOT</version>
 
     <name>SelfAutoRESTDoc</name>
     <url>https://github.com/hdsdi3g/selfautorestdoc</url>
