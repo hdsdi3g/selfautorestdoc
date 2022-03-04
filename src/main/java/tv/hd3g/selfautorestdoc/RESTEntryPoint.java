@@ -89,6 +89,9 @@ class RESTEntryPoint {
 		        .filter(v -> v != null && v.isBlank() == false)
 		        .map(String::trim)
 		        .map(v -> {
+			        if (v.equals("/")) {
+				        return "";
+			        }
 			        var start = 0;
 			        if (v.startsWith("/")) {
 				        start = 1;
@@ -98,7 +101,8 @@ class RESTEntryPoint {
 				        ends = v.length() - 1;
 			        }
 			        return v.substring(start, ends);
-		        }).collect(Collectors.joining("/", "/", ""));
+		        })
+		        .collect(Collectors.joining("/", "/", ""));
 	}
 
 	/**

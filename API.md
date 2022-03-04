@@ -1,15 +1,15 @@
 # REST API
-## Summary
 
- - [Delete Demo **DELETE** /serverPath/deleteActionControllerPath](#delete-demo-delete-/serverpath/deleteactioncontrollerpath)
- - [Get Demo **GET** /serverPath/getActionController/{textValueVarName}/path?numValue=0](#get-demo-get-/serverpath/getactioncontroller/{textvaluevarname}/pathnumvalue=0)
- - [Patch Demo **PATCH** /serverPath/patchActionControllerPath](#patch-demo-patch-/serverpath/patchactioncontrollerpath)
- - [Post Demo **POST** /serverPath/postActionControllerPath](#post-demo-post-/serverpath/postactioncontrollerpath)
- - [Put Demo **PUT** /serverPath/putActionControllerPath](#put-demo-put-/serverpath/putactioncontrollerpath)
+## Summary <a name="top"></a>
 
+* [Delete Demo **DELETE** `/serverPath/deleteActionControllerPath`](#goto546779669)
+* [Get Demo **GET** `/serverPath/getActionController/{textValueVarName}/path?numValue=0`](#goto3292818944)
+* [Patch Demo **PATCH** `/serverPath/patchActionControllerPath`](#goto3046218300)
+* [Post Demo **POST** `/serverPath/postActionControllerPath`](#goto734994824)
+* [Put Demo **PUT** `/serverPath/putActionControllerPath`](#goto1734623014)
 
-## Delete Demo
-**DELETE** /serverPath/deleteActionControllerPath
+## <a name="goto546779669"></a> Delete Demo
+**DELETE** `/serverPath/deleteActionControllerPath`
 
 deleteActionController
 
@@ -22,10 +22,10 @@ Response: "application/json" {
 
 _Mandatory rights: rightForDelete | alternateRightForDelete_
 
-[Go to the top](#rest-api) &bull; [DemoRestController :: deleteActionController](/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#73)
+[Go to the top](#top) &bull; [DemoRestController :: deleteActionController](https://github.com/hdsdi3g/selfautorestdoc/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#73)
 
-## Get Demo
-**GET** /serverPath/getActionController/{textValueVarName}/path?numValue=0
+## <a name="goto3292818944"></a> Get Demo
+**GET** `/serverPath/getActionController/{textValueVarName}/path?numValue=0`
 
 A comment for get demo
 
@@ -46,10 +46,10 @@ Response: "application/json" {
 }
 ```
 
-[Go to the top](#rest-api) &bull; [DemoRestController :: getActionController](/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#59)
+[Go to the top](#top) &bull; [DemoRestController :: getActionController](https://github.com/hdsdi3g/selfautorestdoc/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#59)
 
-## Patch Demo
-**PATCH** /serverPath/patchActionControllerPath
+## <a name="goto3046218300"></a> Patch Demo
+**PATCH** `/serverPath/patchActionControllerPath`
 
 patchActionController
 
@@ -62,10 +62,10 @@ Response: "application/json" {
 
 _Mandatory rights: rightForPatch & anotherRightForPatch_
 
-[Go to the top](#rest-api) &bull; [DemoRestController :: patchActionController](/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#79)
+[Go to the top](#top) &bull; [DemoRestController :: patchActionController](https://github.com/hdsdi3g/selfautorestdoc/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#79)
 
-## Post Demo
-**POST** /serverPath/postActionControllerPath
+## <a name="goto734994824"></a> Post Demo
+**POST** `/serverPath/postActionControllerPath`
 
 postActionController
 
@@ -94,10 +94,10 @@ Response: "application/json" {
 }
 ```
 
-[Go to the top](#rest-api) &bull; [DemoRestController :: postActionController](/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#49)
+[Go to the top](#top) &bull; [DemoRestController :: postActionController](https://github.com/hdsdi3g/selfautorestdoc/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#49)
 
-## Put Demo
-**PUT** /serverPath/putActionControllerPath
+## <a name="goto1734623014"></a> Put Demo
+**PUT** `/serverPath/putActionControllerPath`
 
 putActionController
 
@@ -108,4 +108,5 @@ Response: "application/json" {
 }
 ```
 
-[Go to the top](#rest-api) &bull; [DemoRestController :: putActionController](/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#66)
+[Go to the top](#top) &bull; [DemoRestController :: putActionController](https://github.com/hdsdi3g/selfautorestdoc/blob/master/src/main/java/tv/hd3g/selfautorestdoc/demo/DemoRestController.java#66)
+

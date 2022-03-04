@@ -35,13 +35,15 @@ public class ExportRESTDocAPICmdLine implements ApplicationRunner {
 	private SelfAutoRestDocEndpointsListener selfAutoRestDocEndpointsListener;
 	@Value("${selfautorestdoc.outputfile:API.md}")
 	private File outputFile;
+	@Value("${selfautorestdoc.baseProjectURL:/blob/master}")
+	private String baseProjectURL;
 
 	@Override
 	public void run(final ApplicationArguments args) throws Exception {
 		if (args.getNonOptionArgs().contains("export-rest-doc-api") == false) {
 			return;
 		}
-		selfAutoRestDocEndpointsListener.getSelfAutoRESTDoc().writeToMD(outputFile);
+		selfAutoRestDocEndpointsListener.getSelfAutoRESTDoc().writeToMD(outputFile, baseProjectURL);
 		if (args.getNonOptionArgs().contains("dont-quit-after-done") == false) {
 			System.exit(0);
 		}
