@@ -30,6 +30,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ValueConstants;
 
 import spoon.reflect.CtModel;
 import spoon.reflect.code.CtComment;
@@ -74,6 +75,9 @@ class RESTMethod {
 			        final var type = p.getType();
 			        final var required = a.required();
 			        final var defaultValue = a.defaultValue();
+			        if (ValueConstants.DEFAULT_NONE.equals(defaultValue)) {
+				        return new URLVariable(name, type, required);
+			        }
 			        return new URLVariable(name, type, required, defaultValue);
 		        })
 		        .collect(Collectors.toUnmodifiableList());
